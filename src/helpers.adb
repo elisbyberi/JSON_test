@@ -45,10 +45,18 @@ package body Helpers is
          Address_Arr := Get (Val   => Obj,
                              Field => "addresses");
       end if;
+      --  If the Obj JSON object alread have an addresses field, then we've
+      --  added at least one address already. We then load the previously
+      --  added addresses into the Address_Arr JSON_Array variable, and append
+      --  to this later.
 
       Set_Field (Val        => Address_JSON,
                  Field_Name => "street_name",
                  Field      => Street_Name);
+      --  Using the Set_Field procedure we add fields to the Address_JSON. In
+      --  this case we add the field "street_name" and we give it the value of
+      --  of Street_Name. There are Set_Field procedures for the valid JSON
+      --  types. See GNATCOLL.JSON.JSON_Value_Type.
 
       Set_Field (Val        => Address_JSON,
                  Field_Name => "street_no",
@@ -72,10 +80,14 @@ package body Helpers is
 
       Append (Arr => Address_Arr,
               Val => Address_JSON);
+      --  Here we append the Address_JSON JSON_Value to the Address_Arr
+      --  JSON_Array. Note that we could also have used &, but that would've
+      --  been less efficient.
 
       Set_Field (Val        => Obj,
                  Field_Name => "addresses",
                  Field      => Address_Arr);
+      --  Finally we add the Address_Arr JSON_Array to the Obj JSON_Value.
    end Add_Company_Address;
 
    ------------------
@@ -161,6 +173,9 @@ package body Helpers is
             Map_JSON_Object (Val => Value,
                              CB  => Handler'Access);
       end case;
+      --  Decide output depending on the kind of JSON field we're dealing with.
+      --  Note that if we get a JSON_Object_Type, then we recursively call
+      --  Map_JSON_Object again, which in turn calls this Handler procedure.
    end Handler;
 
    -----------------

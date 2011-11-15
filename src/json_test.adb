@@ -27,9 +27,14 @@ procedure JSON_Test is
    use Helpers;
 
    Company_JSON : JSON_Value := Create_Object;
+   --  Initialize an empty JSON_Value object. We will add values to this
+   --  object using the GNATCOLL.JSON.Set_Field procedures.
+
    Test_JSON    : JSON_Value;
+   --  Uninitialized JSON_Value. We'll use this to hold the JSON object read
+   --  from the exe/test.json file.
 begin
-   --  Build the company JSON
+   --  Build the company JSON. See the Helpers package.
    Set_Core_Company_Data (Obj     => Company_JSON,
                           Name    => "AdaHeads K/S",
                           VAT_No  => "134679-zoink",
@@ -73,7 +78,8 @@ begin
                Title => "Codemonkey",
                Email => "ulrik.horlyk.hjort@adaheads.com");
 
-   --  Output the company JSON.
+   --  Output the company JSON. Note that we've set the Compact parameter of
+   --  Write to False for slightly improved readability. The default is True.
    New_Line;
    Put_Line ("--> Company_JSON Start <--");
    Put_Line (Write (Company_JSON, False));
