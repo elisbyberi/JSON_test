@@ -1,6 +1,25 @@
+-------------------------------------------------------------------------------
+--                                                                           --
+--                         JSON_Test Project File                            --
+--                                                                           --
+--                     Copyright (C) 2011, Thomas Løcke                      --
+--                                                                           --
+--  JSON_Test is free software;  you can  redistribute it  and/or modify     --
+--  it under terms of the  GNU General Public License as published  by the   --
+--  Free Software  Foundation;  either version 2,  or (at your option) any   --
+--  later version.  JSON_Test is distributed in the hope that it will be     --
+--  useful, but WITHOUT ANY WARRANTY;  without even the  implied warranty of --
+--  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU        --
+--  General Public License for  more details.  You should have  received a   --
+--  copy of the GNU General Public License  distributed with JSON_Test.      --
+--  If not, write  to  the  Free Software Foundation,  51  Franklin  Street, --
+--  Fifth  Floor, Boston, MA 02110 - 1301, USA.                              --
+--                                                                           --
+-------------------------------------------------------------------------------
+
 with "gnatcoll";
 
-Project Json_Test is
+Project JSON_Test is
 
    type Build_Type is ("Debug", "Production");
    Build : Build_Type := External ("BUILDTYPE", "Production");
@@ -13,12 +32,12 @@ Project Json_Test is
    for Exec_Dir use "exe";
 
    case Build is
-   
+
       when "Production" =>
          for Object_Dir use "build_production";
       when "Debug" =>
          for Object_Dir use "build_debug";
-   
+
    end case;
 
    package Ide is
@@ -29,18 +48,18 @@ Project Json_Test is
    end Ide;
 
    package Compiler is
-      
+
       case Build is
-      
+
          when "Production" =>
-            for Default_Switches ("Ada") 
+            for Default_Switches ("Ada")
               use ("-gnatwa",
                    "-gnaty3abcdefhiklmnoprstux",
                    "-Wall",
                    "-O2",
                    "-gnat05");
          when "Debug" =>
-            for Default_Switches ("Ada") 
+            for Default_Switches ("Ada")
               use ("-gnatwa",
                    "-gnata",
                    "-gnatVa",
@@ -49,9 +68,9 @@ Project Json_Test is
                    "-O1",
                    "-gnat05",
                    "-g");
-                        
+
       end case;
 
    end Compiler;
 
-end Json_Test;
+end JSON_Test;
