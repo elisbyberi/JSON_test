@@ -21,7 +21,7 @@ with Ada.Text_IO;
 with GNATCOLL.JSON;
 with Helpers;
 
-procedure Json_Test is
+procedure JSON_Test is
    use Ada.Text_IO;
    use GNATCOLL.JSON;
    use Helpers;
@@ -91,4 +91,4 @@ begin
                     CB    => Handler'Access);
    Put_Line ("--> Test_JSON End <--");
    New_Line;
-end Json_Test;
+end JSON_Test;
