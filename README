@@ -1,3 +1,11 @@
 Testing the JSON capabilities of GNATColl.
 
+Make sure that the GNATColl version you're using have the GNATCOLL.JSON
+packages available, else this little test wont work.
+
+The latest SVN will have these:
+
+svn co http://svn.eu.adacore.com/anonsvn/Dev/trunk/gps/gnatlib/
+
+
 
