@@ -61,22 +61,22 @@ begin
    Add_Person (Obj   => Company_JSON,
                Name  => "Jacob Sparre Andersen",
                Title => "Codemonkey",
-               Email => "jacob.sparre.andersen@adaheads.com");
+               Email => "jacspaand@somewhere.tld");
 
    Add_Person (Obj   => Company_JSON,
                Name  => "Kim Rostgaard Christensen",
                Title => "Codemonkey",
-               Email => "kim.rostgaard.christensen@adaheads.com");
+               Email => "kimroschr@somewhere.tld");
 
    Add_Person (Obj   => Company_JSON,
                Name  => "Thomas Løcke",
                Title => "Codemonkey",
-               Email => "thomas.locke@adaheads.com");
+               Email => "tholoc@somewhere.tld");
 
    Add_Person (Obj   => Company_JSON,
                Name  => "Ulrik Hørlyk Hjort",
                Title => "Codemonkey",
-               Email => "ulrik.horlyk.hjort@adaheads.com");
+               Email => "ulrhorhjo@somewhere.tld");
 
    --  Output the company JSON. Note that we've set the Compact parameter of
    --  Write to False for slightly improved readability. The default is True.
